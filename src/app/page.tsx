@@ -8,13 +8,24 @@ export default async function Home() {
 
 	return (
 		<div>
-			<form action={actions.signIn}>
-				<Button type='submit'>Sign In</Button>
-			</form>
+			{!session?.user ? (
+				<form action={actions.signIn}>
+					<Button type='submit'>Sign In</Button>
+				</form>
+			) : (
+				<div>
+					<img
+						width={40}
+						height={40}
+						className='w-10 h-10 rounded-full'
+						src={session.user.image as string}
+					/>
 
-			<form action={actions.signOut}>
-				<Button type='submit'>Sign Out</Button>
-			</form>
+					<form action={actions.signOut}>
+						<Button type='submit'>Sign Out</Button>
+					</form>
+				</div>
+			)}
 
 			{session?.user ? (
 				<div>{JSON.stringify(session.user)}</div>
