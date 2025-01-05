@@ -2,7 +2,6 @@ import NextAuth from 'next-auth';
 import GitHub from 'next-auth/providers/github';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { db } from '@/db';
-import { user } from '@nextui-org/react';
 
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 
@@ -25,6 +24,7 @@ export const {
 			clientSecret: GITHUB_CLIENT_SECRET
 		})
 	],
+	basePath: '/api/auth',
 	callbacks: {
 		// usually not needed, fixing bug in NextAuth
 		// @ts-ignore
