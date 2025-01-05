@@ -1,11 +1,27 @@
 'use server';
 
-import * as auth from '@/auth';
+import { createComment } from './createComment';
+import { createPost } from './createPost';
+import { createTopic } from './createTopic';
+import { signIn } from './signIn';
+import { signOut } from './signOut';
 
-export async function signIn() {
-	return auth.signIn('github');
-}
+export const comment = async () => {
+	return createComment();
+};
 
-export async function signOut() {
-	return auth.signOut();
-}
+export const post = async () => {
+	return createPost();
+};
+
+export const topic = async () => {
+	return createTopic();
+};
+
+export const login = async () => {
+	return signIn();
+};
+
+export const logOut = async () => {
+	return signOut();
+};
