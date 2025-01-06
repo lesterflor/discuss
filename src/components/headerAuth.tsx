@@ -1,33 +1,26 @@
-'use client';
-
-import Link from 'next/link';
 import {
-	Navbar,
-	NavbarBrand,
-	NavbarContent,
 	NavbarItem,
-	Input,
 	Button,
 	Avatar,
 	Popover,
 	PopoverTrigger,
 	PopoverContent
 } from '@nextui-org/react';
-import { useSession } from 'next-auth/react';
 import * as actions from '@/actions';
+import { auth } from '@/auth';
 
-export default function HeaderAuth() {
-	const session = useSession();
+export default async function HeaderAuth() {
+	const session = await auth();
 
 	let authContent: React.ReactNode;
 
-	if (session.status === 'loading') {
+	if (!session) {
 		authContent = null;
-	} else if (session.data?.user) {
+	} else if (session?.user) {
 		authContent = (
 			<Popover placement='left'>
 				<PopoverTrigger>
-					<Avatar src={session.data.user.image as string} />
+					<Avatar src={session.user.image as string} />
 				</PopoverTrigger>
 				<PopoverContent>
 					<div className='p-4'>

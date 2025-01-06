@@ -3,19 +3,13 @@ import {
 	Navbar,
 	NavbarBrand,
 	NavbarContent,
-	NavbarItem,
-	Input,
-	Button,
-	Avatar,
-	Popover,
-	PopoverTrigger,
-	PopoverContent
+	NavbarItem
 } from '@nextui-org/react';
-import { auth } from '@/auth';
-import * as actions from '@/actions';
-import HeaderAuth from '@/components/headerAuth';
 
-export default function Header() {
+import HeaderAuth from '@/components/headerAuth';
+import SearchInput from '@/components/search-input';
+
+export default async function Header() {
 	return (
 		<Navbar className='shadow mb-6'>
 			<NavbarBrand>
@@ -27,7 +21,7 @@ export default function Header() {
 			</NavbarBrand>
 			<NavbarContent justify='center'>
 				<NavbarItem>
-					<Input />
+					<SearchInput />
 				</NavbarItem>
 			</NavbarContent>
 			<NavbarContent justify='end'>

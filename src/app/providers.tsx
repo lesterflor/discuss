@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import { NextUIProvider } from '@nextui-org/react';
 import { Session } from 'next-auth';
@@ -6,14 +6,14 @@ import { SessionProvider } from 'next-auth/react';
 
 interface IProvidersProps {
 	children: React.ReactNode;
-	session: Session | null;
+	// session: Session | null;
 }
 
-export default function Providers({ children, session }: IProvidersProps) {
+export default function Providers({ children }: IProvidersProps) {
 	return (
 		// some incompatibility issues with using SessionProvider for some packages used in this app
-		<SessionProvider session={session}>
-			<NextUIProvider>{children}</NextUIProvider>
-		</SessionProvider>
+		// <SessionProvider session={session}>
+		<NextUIProvider>{children}</NextUIProvider>
+		// </SessionProvider>
 	);
 }

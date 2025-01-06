@@ -3,6 +3,7 @@
 import { createComment, ICreateCommentFormState } from './createComment';
 import { createPost, ICreatePostFormState } from './createPost';
 import { createTopic, ICreateTopicFormState } from './createTopic';
+import { search } from './search';
 import { signIn } from './signIn';
 import { signOut } from './signOut';
 
@@ -35,4 +36,8 @@ export const login = async () => {
 
 export const logOut = async () => {
 	return signOut();
+};
+
+export const lookup = async (formData: FormData) => {
+	return search(formData);
 };
