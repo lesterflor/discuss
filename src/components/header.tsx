@@ -8,6 +8,7 @@ import {
 
 import HeaderAuth from '@/components/headerAuth';
 import SearchInput from '@/components/search-input';
+import { Suspense } from 'react';
 
 export default async function Header() {
 	return (
@@ -21,7 +22,9 @@ export default async function Header() {
 			</NavbarBrand>
 			<NavbarContent justify='center'>
 				<NavbarItem>
-					<SearchInput />
+					<Suspense>
+						<SearchInput />
+					</Suspense>
 				</NavbarItem>
 			</NavbarContent>
 			<NavbarContent justify='end'>
