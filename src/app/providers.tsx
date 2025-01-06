@@ -1,7 +1,6 @@
 'use client';
 
 import { NextUIProvider } from '@nextui-org/react';
-import { s } from 'framer-motion/m';
 import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 
