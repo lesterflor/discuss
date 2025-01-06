@@ -1,13 +1,17 @@
 'use server';
 
-import { createComment } from './createComment';
+import { createComment, ICreateCommentFormState } from './createComment';
 import { createPost, ICreatePostFormState } from './createPost';
 import { createTopic, ICreateTopicFormState } from './createTopic';
 import { signIn } from './signIn';
 import { signOut } from './signOut';
 
-export const comment = async () => {
-	return createComment();
+export const comment = async (
+	{ postId, parentId }: { postId: string; parentId?: string },
+	formState: ICreateCommentFormState,
+	formData: FormData
+) => {
+	return createComment({ postId, parentId }, formState, formData);
 };
 
 export const post = async (

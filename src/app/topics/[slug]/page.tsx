@@ -1,4 +1,6 @@
 import PostCreateForm from '@/components/posts/post-create-form';
+import PostList from '@/components/posts/post-list';
+import { fetchPostByTopicSlug } from '@/db/queries/posts';
 
 interface ITopicShowPage {
 	params: Promise<{
@@ -17,6 +19,7 @@ export default async function TopicShowPage({ params }: ITopicShowPage) {
             '>
 					{slug}
 				</h1>
+				<PostList fetchData={() => fetchPostByTopicSlug(slug)} />
 			</div>
 
 			<div>
